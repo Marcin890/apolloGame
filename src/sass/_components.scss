@@ -1,0 +1,261 @@
+.gameboard {
+  width: 100vw;
+  height: 100vh;
+  background: #00263f;
+  position: relative;
+  animation: background-animation 60s infinite alternate;
+}
+.apollo {
+  width: 90px;
+  height: 30px;
+  position: fixed;
+  left: 0;
+  background-image: url("../../public/images/ship.png");
+  background-size: cover;
+
+  &:before {
+    content: "";
+    transform: rotate(-90deg);
+    display: block;
+    width: 25px;
+    height: 60px;
+    position: absolute;
+    left: -40px;
+    bottom: -15px;
+    background-image: url("../../public/images/flame-sprite.png");
+    background-size: cover;
+    animation: flame-apollo-animation 200ms steps(8) infinite;
+  }
+}
+
+.soviet {
+  width: 55px;
+  height: 47px;
+  position: fixed;
+  right: 0;
+  z-index: 2;
+  background-image: url("../../public/images/sojuz.png");
+  background-size: cover;
+  &:after {
+    content: "";
+    transform: rotate(90deg);
+    display: block;
+    width: 16px;
+    height: 40px;
+    position: absolute;
+    left: 65px;
+    bottom: 3px;
+    background-image: url("../../public/images/flame-sprite.png");
+    background-size: cover;
+    animation: flame-soviet-animation 200ms steps(8) infinite;
+  }
+}
+.missle {
+  width: 66px;
+  height: 15px;
+  position: fixed;
+  background-image: url("../../public/images/missle.png");
+  background-size: cover;
+  &:before {
+    content: "";
+    transform: rotate(-90deg);
+    display: block;
+    width: 10px;
+    height: 25px;
+    position: absolute;
+    left: -20px;
+    bottom: -8px;
+    background-image: url("../../public/images/flame-sprite.png");
+    background-size: cover;
+    animation: flame-missle-animation 200ms steps(8) infinite;
+  }
+}
+.meteorite {
+  // background: rgb(8, 206, 206);
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  background-size: cover;
+  background-image: url("../../public/images/asteroid.png");
+}
+
+.explosion {
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  background-size: cover;
+  background-image: url("../../public/images/explosion.png");
+}
+.start {
+  z-index: 99;
+  position: absolute;
+  // background: white;
+  // opacity: 0.4;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // width: 300px;
+  // height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__button {
+    color: $secondary-color;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 20px 60px;
+    border: $secondary-color 2px solid;
+    border-radius: 20px;
+    background: none;
+    &:hover {
+      background: $secondary-color;
+      color: white;
+    }
+  }
+}
+.gameover {
+  z-index: 99;
+  position: absolute;
+  // background: white;
+  // opacity: 0.4;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // width: 300px;
+  // height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__score {
+    color: $secondary-color;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 20px 60px;
+    border: $secondary-color 2px solid;
+    display: block;
+    border-radius: 20px;
+    background: none;
+    &:hover {
+      background: $secondary-color;
+      color: white;
+    }
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 1.5rem;
+  z-index: 3;
+  position: relative;
+}
+.star {
+  background: white;
+  width: 2px;
+  height: 2px;
+  position: fixed;
+  z-index: 0;
+  box-shadow: 1px 1px 2px 1px white;
+  opacity: 0.8;
+}
+.score {
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.live {
+  width: 300px;
+  height: 20px;
+  border: $secondary-color 2px solid;
+  border-radius: 10px;
+  &__bar {
+    background: $secondary-color;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.damaged {
+  animation: damaged 200ms infinite alternate;
+}
+
+.nasa {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  background-size: cover;
+  background-image: url("../../public/images/nasa.png");
+}
+
+.mute {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-image: url("../../public/images/muted.png");
+}
+
+.muted {
+  background-image: url("../../public/images/mute.png");
+}
+
+@keyframes damaged {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+@keyframes background-animation {
+  from {
+    background: #00263f;
+  }
+  to {
+    background: #4c1147;
+  }
+}
+
+@keyframes flame-apollo-animation {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    /* Wylicza wielkośc jednostki 64px * 8 obrazków */
+    background-position-x: -200px;
+  }
+}
+@keyframes flame-soviet-animation {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    /* Wylicza wielkośc jednostki 64px * 8 obrazków */
+    background-position-x: -133px;
+  }
+}
+@keyframes flame-missle-animation {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    /* Wylicza wielkośc jednostki 64px * 8 obrazków */
+    background-position-x: -83px;
+  }
+}

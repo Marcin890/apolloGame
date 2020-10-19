@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Project</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;600;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="gameboard" data-gameboard>
+      <div class="apollo hide" data-apollo></div>
+      <div class="info">
+        <div class="live hide" data-live>
+          <div class="live__bar" data-live-bar></div>
+        </div>
+        <div class="score" data-score></div>
+      </div>
+      <div class="start hide" data-start>
+        <button class="start__button" data-start-button>Start</button>
+      </div>
+      <div class="gameover hide" data-gameover>
+        <button class="gameover__score" data-gameover-score></button>
+      </div>
+      <div class="mute" data-audio-mute></div>
+    </div>
+    <audio
+      muted
+      data-audio-explosion
+      src="audio/Bomb-SoundBible.com-891110113.mp3"
+    ></audio>
+    <audio
+      muted
+      data-audio-missle
+      src="audio/Missle_Launch-Kibblesbob-2118796725.mp3"
+    ></audio>
+    <audio
+      muted
+      data-audio-alarm
+      src="audio/Siren_Noise-KevanGC-1337458893.mp3"
+    ></audio>
+  </body>
+</html>
